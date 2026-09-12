@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeSchool — A safer school starts with being heard</title>
+<style>
+:root{
+  --navy:#172554; --blue:#2563eb; --sky:#eff6ff; --cyan:#06b6d4;
+  --green:#16a34a; --red:#dc2626; --yellow:#f59e0b; --text:#172033;
+  --muted:#64748b; --white:#fff; --border:#e2e8f0; --bg:#f8fafc;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+header{background:linear-gradient(135deg,#172554,#2563eb);color:white}
+nav{max-width:1120px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.35rem;font-weight:800;letter-spacing:.2px}
+.logo span{color:#67e8f9}
+nav a{color:white;text-decoration:none;margin-left:22px;font-weight:600;font-size:.95rem}
+.hero{max-width:1120px;margin:auto;padding:72px 24px 82px;display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:center}
+.badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:7px 12px;border-radius:999px;font-size:.86rem}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.02;margin:18px 0}
+.hero p{font-size:1.15rem;color:#dbeafe;max-width:650px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{border:0;border-radius:12px;padding:13px 19px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.primary{background:white;color:var(--navy)}
+.btn.secondary{background:#0f3fa8;color:white;border:1px solid #60a5fa}
+.qr-card{background:white;color:var(--text);padding:25px;border-radius:24px;box-shadow:0 25px 60px rgba(15,23,42,.25);text-align:center}
+.qr{width:170px;height:170px;margin:12px auto 18px;background:
+repeating-conic-gradient(#111 0 25%,#fff 0 50%) 0/18px 18px;
+border:10px solid white;outline:1px solid #cbd5e1}
+.qr-card small{color:var(--muted)}
+section{max-width:1120px;margin:auto;padding:72px 24px}
+.section-title{text-align:center;max-width:720px;margin:0 auto 40px}
+.section-title h2{font-size:2.1rem;margin:0 0 10px}
+.section-title p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:white;border:1px solid var(--border);border-radius:20px;padding:25px;box-shadow:0 7px 25px rgba(15,23,42,.05)}
+.icon{font-size:2rem}
+.card h3{margin:12px 0 7px}.card p{color:var(--muted);margin:0}
+.panel{background:white;border:1px solid var(--border);border-radius:24px;padding:30px;max-width:760px;margin:auto;box-shadow:0 10px 30px rgba(15,23,42,.06)}
+label{display:block;font-weight:750;margin:17px 0 7px}
+input,textarea,select{width:100%;padding:13px 14px;border:1px solid #cbd5e1;border-radius:11px;font:inherit;background:white}
+textarea{min-height:125px;resize:vertical}
+.note{background:#eff6ff;border-left:4px solid var(--blue);padding:12px 14px;border-radius:8px;color:#1e3a8a;margin:15px 0}
+.success{display:none;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;padding:15px;border-radius:12px;margin-top:15px}
+.feelings{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px}
+.feeling{border:1px solid var(--border);background:white;border-radius:15px;padding:15px 5px;text-align:center;cursor:pointer;font-size:1.8rem}
+.feeling span{display:block;font-size:.78rem;margin-top:5px;color:var(--muted)}
+.feeling.selected{border:2px solid var(--blue);background:var(--sky)}
+.resources{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.resource{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px}
+.resource strong{display:block;margin-bottom:5px}
+details{margin-top:12px;background:#f8fafc;padding:12px;border-radius:10px}
+footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:35px 24px}
+footer strong{color:white}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:50px}.grid,.resources{grid-template-columns:1fr}nav a{display:none}.feelings{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header>
+<nav>
+  <div class="logo">Safe<span>School</span> 🛡️</div>
+  <div><a href="#report">Report</a><a href="#feelings">How I Feel</a><a href="#resources">Resources</a></div>
+</nav>
+<div class="hero">
+  <div>
+    <span class="badge">A school community where every voice matters</span>
+    <h1>You deserve to feel safe at school.</h1>
+    <p>SafeSchool gives students a simple, private way to communicate bullying, discrimination, or other problems so trusted adults can respond early.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#report">Make a report</a>
+      <a class="btn secondary" href="#feelings">Share how you feel</a>
+    </div>
+  </div>
+  <div class="qr-card">
+    <h3>Quick access</h3>
+    <div class="qr" aria-label="QR code placeholder"></div>
+    <strong>Scan the classroom QR code</strong>
+    <p><small>This demo QR is a visual placeholder. The school can replace it with the link to this reporting page.</small></p>
+  </div>
+</div>
+</header>
+
+<section>
+<div class="section-title">
+  <h2>How SafeSchool works</h2>
+  <p>A simple system designed to identify problems early and protect learning.</p>
+</div>
+<div class="grid">
+  <div class="card"><div class="icon">📝</div><h3>1. Report</h3><p>Students can describe a problem without having to speak in front of classmates.</p></div>
+  <div class="card"><div class="icon">🔎</div><h3>2. Review</h3><p>A designated teacher or counselor reviews reports and follows the school's safeguarding procedures.</p></div>
+  <div class="card"><div class="icon">🤝</div><h3>3. Respond</h3><p>The school can provide support, investigate appropriately, and help students stay focused on learning.</p></div>
+</div>
+</section>
+
+<section id="report">
+<div class="section-title">
+  <h2>Anonymous report</h2>
+  <p>Tell us what is happening. You do not need to include your name.</p>
+</div>
+<div class="panel">
+  <div class="note"><strong>Privacy note:</strong> This classroom demo does not send information to a real school. In a real implementation, reports should be stored securely and handled only by authorized staff.</div>
+  <form id="reportForm">
+    <label for="type">What would you like to report?</label>
+    <select id="type" required>
+      <option value="">Choose one...</option>
+      <option>Bullying</option><option>Discrimination</option><option>Online harassment</option>
+      <option>Feeling unsafe</option><option>Another school problem</option>
+    </select>
+    <label for="where">Where did it happen?</label>
+    <input id="where" placeholder="Example: classroom, hallway, online..." required>
+    <label for="when">When did it happen?</label>
+    <input id="when" placeholder="Example: today during lunch">
+    <label for="description">What happened?</label>
+    <textarea id="description" placeholder="Describe the situation in your own words..." required></textarea>
+    <label for="support">What kind of support would help?</label>
+    <select id="support">
+      <option>I would like an adult to check in with me</option>
+      <option>I would like the school to investigate</option>
+      <option>I am not sure yet</option>
+      <option>Other</option>
+    </select>
+    <button class="btn" style="background:#2563eb;color:white;margin-top:20px;width:100%" type="submit">Send report</button>
+    <div class="success" id="reportSuccess">✓ Demo report saved on this device. In a real SafeSchool system, it would be securely routed to the authorized school team.</div>
+  </form>
+</div>
+</section>
+
+<section id="feelings">
+<div class="section-title">
+  <h2>How do you feel this week?</h2>
+  <p>A quick check-in can help teachers understand the classroom environment.</p>
+</div>
+<div class="panel">
+  <div class="feelings" id="feelingsBox">
+    <button class="feeling" data-feel="Great">😄<span>Great</span></button>
+    <button class="feeling" data-feel="Okay">🙂<span>Okay</span></button>
+    <button class="feeling" data-feel="Unsure">😐<span>Unsure</span></button>
+    <button class="feeling" data-feel="Worried">😟<span>Worried</span></button>
+    <button class="feeling" data-feel="Not safe">😞<span>Not safe</span></button>
+  </div>
+  <label for="checkin">Anything you'd like your teacher to know? (optional)</label>
+  <textarea id="checkin" placeholder="You can share a short message..."></textarea>
+  <button class="btn" id="saveFeeling" style="background:#16a34a;color:white;margin-top:15px;width:100%">Save check-in</button>
+  <div class="success" id="feelingSuccess">✓ Check-in saved on this device for this demo.</div>
+</div>
+</section>
+
+<section id="resources">
+<div class="section-title">
+  <h2>Learn, support, and speak up</h2>
+  <p>Short resources that promote empathy, respect, and help-seeking.</p>
+</div>
+<div class="resources">
+  <div class="resource"><strong>💙 Empathy</strong>Try to understand how another person may feel before reacting.<details><summary>Quick activity</summary>Think of a difficult school situation. Write one response that could make it worse and one that could make it better.</details></div>
+  <div class="resource"><strong>🤝 Respect</strong>Everyone deserves to participate in class without being mocked, excluded, or threatened.<details><summary>Quick activity</summary>Name three actions that could make your classroom feel more welcoming.</details></div>
+  <div class="resource"><strong>🗣️ Ask for help</strong>Talking to a trusted adult is a valid way to get support when a problem affects your safety or learning.<details><summary>Quick activity</summary>Identify one trusted adult at school and think about how you could start the conversation.</details></div>
+  <div class="resource"><strong>📚 Protect learning</strong>A safer classroom can make it easier for students to participate, concentrate, and keep up with schoolwork.<details><summary>Reflection</summary>What changes would help your classroom become a better place for learning?</details></div>
+</div>
+</section>
+
+<section>
+<div class="section-title"><h2>For teachers and counselors</h2><p>SafeSchool is a communication tool—not a replacement for school safeguarding procedures.</p></div>
+<div class="panel">
+  <ul>
+    <li>Review reports promptly and only with authorized staff.</li>
+    <li>Protect student privacy and avoid sharing identifying information unnecessarily.</li>
+    <li>Follow the school's established anti-bullying and safeguarding protocols.</li>
+    <li>Use weekly check-ins to notice patterns, not to label or publicly identify students.</li>
+    <li>Connect students with appropriate academic and emotional support when needed.</li>
+  </ul>
+</div>
+</section>
+
+<footer><strong>SafeSchool 🛡️</strong><br>A student-centered concept for preventing bullying from harming learning.</footer>
+
+<script>
+document.getElementById('reportForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const report = {
+    type: document.getElementById('type').value,
+    where: document.getElementById('where').value,
+    when: document.getElementById('when').value,
+    description: document.getElementById('description').value,
+    support: document.getElementById('support').value,
+    date: new Date().toISOString()
+  };
+  const reports = JSON.parse(localStorage.getItem('safeschool_reports') || '[]');
+  reports.push(report);
+  localStorage.setItem('safeschool_reports', JSON.stringify(reports));
+  document.getElementById('reportSuccess').style.display='block';
+  this.reset();
+});
+let selectedFeeling='';
+document.querySelectorAll('.feeling').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.feeling').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedFeeling=btn.dataset.feel;
+  });
+});
+document.getElementById('saveFeeling').addEventListener('click',()=>{
+  if(!selectedFeeling){alert('Please choose how you feel first.');return;}
+  const checkins=JSON.parse(localStorage.getItem('safeschool_checkins') || '[]');
+  checkins.push({feeling:selectedFeeling,message:document.getElementById('checkin').value,date:new Date().toISOString()});
+  localStorage.setItem('safeschool_checkins',JSON.stringify(checkins));
+  document.getElementById('feelingSuccess').style.display='block';
+  document.getElementById('checkin').value='';
+});
+</script>
+</body>
+</html>
